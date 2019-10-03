@@ -28,15 +28,26 @@ public class Topico {
 	
 	@ManyToOne
 	private Usuario autor;
-	
+
 	@ManyToOne
 	private Curso curso;
+	
+	public Topico(String titulo, String mensagem, Curso curso) {
+		super();
+		this.titulo = titulo;
+		this.mensagem = mensagem;
+		this.curso = curso;
+	}
 
 	// serve pra nao criar um novo registro no banco, visto que na entidade Resposta vai ter um mapeamento pra essa entidade, 
 	// indicada pela property topico
 	@OneToMany(mappedBy = "topico") 
 	private List<Resposta> respostas = new ArrayList<>();
 
+	public Topico() {}
+	
+	
+	
 //	public Topico(String titulo, String mensagem, Curso curso) {
 //		this.titulo = titulo;
 //		this.mensagem = mensagem;
